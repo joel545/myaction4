@@ -1,20 +1,13 @@
-# This is a basic workflow to help you get started with Actions
-
-name: open notepad
-
-# Controls when the workflow will run
+name: Open NotePad
 on:
-    push:
+  push:
     branches: 
-    - main
-   workflow_dispatch: 
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-open-notepad :
-runs-on : windows-latest 
-     steps:
-  
-      - name: 開啟紀事本
-        run:  start-process "notepad.exe" 
-        shell: pwsh #使用PowerShell shell
+      -  main
+  workflow_dispatch:  #可以手動觸發
+jobs:  
+  open-notepad:   
+    runs-on: windows-latest  #使用最新的win 執行環境
+    steps:    
+      - name: 開啟記事本
+        run: Start-Process "notepad.exe"  #啟動記事
+        shell:  pwsh #使用PowerShell shell
